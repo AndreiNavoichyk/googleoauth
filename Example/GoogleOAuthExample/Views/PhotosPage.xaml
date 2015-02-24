@@ -1,0 +1,61 @@
+﻿<views:BusyView
+    x:Class="GoogleOAuthExample.Views.PhotosPage"
+    x:Name="PhotoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:bindableAppBar="clr-namespace:Caliburn.Micro.BindableAppBar;assembly=Caliburn.Micro.BindableAppBar"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:views="clr-namespace:GoogleOAuthExample.Views"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{Binding AlbumTitle}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="16 0 16 0">
+            <ScrollViewer>
+                <StackPanel Margin="0 0 0 76">
+                    <telerikPrimitives:RadDataBoundListBox 
+                        ItemsSource="{Binding Photos}"
+                        ItemTemplate="{StaticResource PicasaImageItemTemplate}"
+                        EmptyContent="{Binding UI.NoPhotos, Source={StaticResource Localization}}"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+        <!-- ReSharper disable Xaml.MissingGridIndex -->
+        <!-- ReSharper disable Xaml.MissingGridIndex -->
+        <bindableAppBar:BindableAppBar 
+            Opacity=".99"
+            BackgroundColor="{StaticResource ApplicationBarBackgroundColor}">
+            <!-- ReSharper restore Xaml.MissingGridIndex -->
+            <!-- ReSharper restore Xaml.MissingGridIndex -->
+            <bindableAppBar:BindableAppBarButton
+                x:Name="AddFromCamera"
+                IconUri="/Images/AppBar/camera.png"
+                Text="{Binding UI.FromCamera, Source={StaticResource Localization}}"/>
+            <bindableAppBar:BindableAppBarButton
+                x:Name="AddFromLibrary"
+                IconUri="/Images/AppBar/add.png"
+                Text="{Binding UI.FromLibrary, Source={StaticResource Localization}}"/>
+        </bindableAppBar:BindableAppBar>
+    </Grid>
+
+</views:BusyView>

@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives">
+
+    <Style x:Key="PicasaItemBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="{StaticResource PhoneAccentBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="telerik:InteractionEffectManager.IsInteractionEnabled" Value="True"/>
+    </Style>
+
+    <Style TargetType="telerikPrimitives:RadDataBoundListBox">
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="VirtualizationStrategyDefinition">
+            <Setter.Value>
+                <telerikPrimitives:WrapVirtualizationStrategyDefinition Orientation="Horizontal"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
