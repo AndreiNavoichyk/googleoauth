@@ -1,0 +1,1 @@
+put here Telerik.Windows.Controls.Primitives.dll and Telerik.Windows.Core.dll
